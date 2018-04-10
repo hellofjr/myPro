@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -15,11 +15,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  num: number = 0;
+  x: number = 0;
+  disX: number = 0;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  //测试rotateImg
+  panStart(ev) {
+    var ev = ev || event;
+    this.disX = ev.deltaX - this.x;
   }
 
+  panEvent(ev) {
+    this.x = ev.deltaX - this.disX;
+    this.num = parseInt((this.x / 15).toFixed(0));
+    if (this.num > 0) {
+      this.num = this.num % 59 + 1;
+    } else {
+      this.num = (this.num + -59 * (Math.floor(this.num / 59))) + 1;
+    }
+  }
+
+  showHDPic() {
+    let imgData = {
+      url:'assets/rotateImgs/img_' + this.num + '.png'
+    }
+    let mymodal = this.modalCtrl.create('PictureModalPage', imgData, {
+      cssClass: 'pictureModal'
+    });
+    mymodal.present();
+  }
 }

@@ -1,3 +1,17 @@
 page-home {
-
+    .scroll-content {
+        background-color: #ffffff !important;
+        padding: 0px !important;
+        overflow: hidden;
+    }
+    ion-card {
+        img {
+            height: 300px;
+            width: 300px;
+        }
+    }
+    .card-ios {
+        box-shadow: none !important;
+        border: 1px solid black;
+    }
 }
