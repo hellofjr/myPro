@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+import { ProductServiceProvider } from '../../providers/product-service/product-service';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -18,9 +20,11 @@ export class HomePage {
   num: number = 0;
   x: number = 0;
   disX: number = 0;
+  text: number = 0;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public productService: ProductServiceProvider) {
   }
 
   //测试rotateImg
@@ -40,12 +44,22 @@ export class HomePage {
   }
 
   showHDPic() {
-    let imgData = {
-      url:'assets/rotateImgs/img_' + this.num + '.png'
-    }
-    let mymodal = this.modalCtrl.create('PictureModalPage', imgData, {
-      cssClass: 'pictureModal'
-    });
-    mymodal.present();
+    // let imgData = {
+    //   url: 'assets/rotateImgs/img_' + this.num + '.png'
+    // }
+    // let mymodal = this.modalCtrl.create('PictureModalPage', imgData, {
+    //   cssClass: 'pictureModal'
+    // });
+    // mymodal.present();
+
+    let apiUrl = 'http://localhost:38500/api/SupplySku/GetProductBrand';
+    let option = {
+      page:1,
+      limit:20
+    };
+    this.productService.getProductDetail(apiUrl, option).subscribe(res => {
+      this.text++;
+      console.log(res.items);
+    })
   }
 }
