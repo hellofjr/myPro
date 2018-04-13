@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
+import { GET_BRAND } from '../../providers/constants/constants';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -20,8 +21,8 @@ export class ProductServiceProvider {
 
   }
 
-  getProductDetail(url,param) {
-    return this.httpService.get(url,param);
+  getProductDetail(param) {
+    return this.httpService.get(GET_BRAND, param);
   }
 
 }

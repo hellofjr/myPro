@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 import { ProductServiceProvider } from '../../providers/product-service/product-service';
 
+
+
 /**
  * Generated class for the HomePage page.
  *
@@ -21,13 +23,17 @@ export class HomePage {
   x: number = 0;
   disX: number = 0;
   text: number = 0;
+  
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public productService: ProductServiceProvider) {
   }
 
-  //测试rotateImg
+  /**
+   * 测试rotateImg
+   * @param ev 
+   */
   panStart(ev) {
     var ev = ev || event;
     this.disX = ev.deltaX - this.x;
@@ -52,12 +58,11 @@ export class HomePage {
     // });
     // mymodal.present();
 
-    let apiUrl = 'http://localhost:38500/api/SupplySku/GetProductBrand';
-    let option = {
-      page:1,
-      limit:20
+    let param = {
+      page: 1,
+      limit: 20
     };
-    this.productService.getProductDetail(apiUrl, option).subscribe(res => {
+    this.productService.getProductDetail(param).subscribe(res => {
       this.text++;
       console.log(res.items);
     })
