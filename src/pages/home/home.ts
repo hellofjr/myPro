@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser';
+
 
 import { ProductServiceProvider } from '../../providers/product-service/product-service';
 
@@ -27,6 +29,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    public themeableBrowser: ThemeableBrowser,
     public productService: ProductServiceProvider) {
   }
 
@@ -66,5 +69,30 @@ export class HomePage {
       this.text++;
       console.log(res.items);
     })
+  }
+
+  show360(){
+    const options: ThemeableBrowserOptions = {
+      statusbar: {
+        color: '#000b18'
+      },
+      toolbar: {
+        height: 44,
+        color: '#f0f0f0ff'
+      },
+      title: {
+        color: '#003264ff',
+        showPageTitle: true
+      },
+      backButton: {
+        wwwImage: 'assets/imgs/back.png',
+        wwwImagePressed: 'assets/imgs/back_pressed.png',
+        wwwImageDensity: 2,
+        align: 'left',
+        event: 'backPressed'
+      },
+      backButtonCanClose: true
+    };
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('http://img360.fang.com/2017/03/31/gz/720/c6088d66aa7c4481852a2cf8a4f4f75e/index.html?type=hangpai?nc=2811172684', '_blank', options);
   }
 }
