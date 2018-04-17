@@ -14,7 +14,7 @@ import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser';
+import { ThemeableBrowser } from '@ionic-native/themeable-browser';
 import { ProductServiceProvider } from '../providers/product-service/product-service';
 import { HttpServiceProvider } from '../providers/http-service/http-service';
 
