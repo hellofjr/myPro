@@ -15,7 +15,6 @@
 
 <ion-content padding>
   <ion-card style="width:300px;height:300px">
-    <img (panstart)="panStart($event)" (pan)="panEvent($event)" (tap)="show360()" [src]="'assets/rotateImgs/img_'+ num +'.png'" />
+    <img (panstart)="panStart($event)" (pan)="panEvent($event)" (tap)="showHDPic()" [src]="'assets/rotateImgs/img_'+ num +'.png'" />
   </ion-card>
-  <p>{{text}}</p>
 </ion-content>

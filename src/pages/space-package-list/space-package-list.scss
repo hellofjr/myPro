@@ -1,0 +1,86 @@
+page-space-package-list {
+    .scroll-content {
+        background-color: #ffffff !important;
+        padding: 0px !important;
+    }
+    .no-scroll .scroll-content {
+        // overflow: hidden;
+    }
+    .bar-button-ios[icon-only] ion-icon {
+        padding: 0 10px 0 18px !important;
+        font-size: 16px;
+    }
+    .list-ios>.item-block:last-child,
+    .list-ios>.item-wrapper:last-child .item-block {
+        border-bottom: none !important;
+    }
+    .item-inner {
+        border: none !important;
+        background-image: none !important;
+    }
+    ion-scroll {
+        position: static;
+    }
+    .spaceContainer {
+        min-height: 100%;
+        .first-category {
+            background: none !important;
+            padding: 0;
+            border-right: 1px solid #e1e1e1;
+            box-shadow: 9px 0 6px -3px #f7f7f7;
+        }
+        .hasScroll {
+            .scroll-content {
+                margin-top: 70px;
+                overflow: scroll; 
+            }
+            .scollTopPadding {
+                .spaceItem {
+                    width: 100%;
+                    color: #6a6e72;
+                    height: 50px;
+                    font-size: 15px;
+                    background-color: transparent;
+                }
+                .btnSelected {
+                    color: red;
+                    background-color: green;
+                }
+                .btnUnselected {
+                    color: black;
+                    background-color: gray;
+                }
+            }
+            .list-ios>.item-block:first-child {
+                border: none !important;
+            }
+        }
+    }
+    .second-category {
+        padding: 0;
+    }
+    .secondHasScroll {
+        .scroll-content {
+            margin-top: 5px;
+            overflow: scroll;
+        }
+    }
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+    .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+    .topImg {
+        img {
+            height: 300px;
+            width: 100%;
+        }
+    }
+}

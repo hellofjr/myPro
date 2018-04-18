@@ -1,0 +1,66 @@
+<!--
+  Generated template for the SpacePackageListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>套餐包</ion-title>
+    <!-- <ion-buttons end align-items-center>
+      <button ion-button icon-only (click)="showPopover($event)" class="popoverBtn">
+        {{user}}
+        <ion-icon name="arrow-down"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content class="no-scroll">
+  <ion-row class="spaceContainer">
+    <ion-col col-2 class="first-category">
+      <ion-scroll scrollY="true" class="hasScroll">
+        <ion-list class="scollTopPadding">
+          <button class="spaceItem" text-center *ngFor="let space of spaceList;let idx = index" [ngClass]="{'btnSelected': space.Selected, 'btnUnselected': !space.Selected}"
+            (click)="selectSpace(idx)">
+            {{ space.Name }}
+          </button>
+        </ion-list>
+      </ion-scroll>
+    </ion-col>
+    <ion-col col-10 class="second-category">
+      <ion-scroll scrollY="true" class=" secondHasScroll">
+        <ion-row>
+          <ion-col class="topImg">
+            <img [src]="topImg" (tap)="showKrpano()">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <ion-card (tap)="goSimilarProductsList()">
+              <img src="assets/imgs/demoCard.jpg" />
+              <div class="card-title">沙发</div>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card>
+              <img src="assets/imgs/demoCard.jpg" />
+              <div class="card-title">茶几</div>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card>
+              <img src="assets/imgs/demoCard.jpg" />
+              <div class="card-title">凳子</div>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card>
+              <img src="assets/imgs/demoCard.jpg" />
+              <div class="card-title">凳子</div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-scroll>
+    </ion-col>
+  </ion-row>
+</ion-content>
