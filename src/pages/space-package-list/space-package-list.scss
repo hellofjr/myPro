@@ -4,7 +4,7 @@ page-space-package-list {
         padding: 0px !important;
     }
     .no-scroll .scroll-content {
-        // overflow: hidden;
+        overflow: hidden;
     }
     .bar-button-ios[icon-only] ion-icon {
         padding: 0 10px 0 18px !important;
@@ -32,7 +32,7 @@ page-space-package-list {
         .hasScroll {
             .scroll-content {
                 margin-top: 70px;
-                overflow: scroll; 
+                overflow: scroll;
             }
             .scollTopPadding {
                 .spaceItem {
