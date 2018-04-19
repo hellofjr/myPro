@@ -14,7 +14,27 @@
 
 
 <ion-content padding>
-  <ion-card style="width:300px;height:300px">
+  <!-- <ion-card style="width:300px;height:300px">
     <img (panstart)="panStart($event)" (pan)="panEvent($event)" (tap)="showHDPic()" [src]="'assets/rotateImgs/img_'+ num +'.png'" />
-  </ion-card>
+  </ion-card> -->
+  <ion-row class="topContent">
+    <ion-slides #Slides autoplay="3000" pager (ionSlideAutoplayStop)="autoplay()">
+      <ion-slide *ngFor="let img of imagesList;let idx = index;">
+        <img [src]="img.Url" class="slideImg" (tap)="getPackageDetail(idx)">
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <ion-row>
+    <ion-col text-center>
+      案例入口
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 text-center>
+      套餐说明
+    </ion-col>
+    <ion-col col-12 text-center>
+      销售规则
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -14,4 +14,13 @@ page-home {
         box-shadow: none !important;
         border: 1px solid black;
     }
+    .topContent{
+        height: 500px;
+    }
+    ion-slide {
+        height: 500px;
+        img {
+            height: 500px;
+        }
+    }
 }

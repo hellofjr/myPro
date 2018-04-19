@@ -16,11 +16,11 @@ export class TabsPage {
   constructor() {
     this.tabRoots = [{
       root: HomePage,
-      tabTitle: "Home",
+      tabTitle: "首页",
       tabIcon: "home"
     },{
       root: ContactPage,
-      tabTitle: "Home",
+      tabTitle: "分类",
       tabIcon: "home"
     },{
       root: AboutPage,

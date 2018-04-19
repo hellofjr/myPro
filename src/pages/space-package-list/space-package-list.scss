@@ -31,7 +31,7 @@ page-space-package-list {
         }
         .hasScroll {
             .scroll-content {
-                margin-top: 70px;
+                // margin-top: 10px;
                 overflow: scroll;
             }
             .scollTopPadding {
@@ -43,12 +43,12 @@ page-space-package-list {
                     background-color: transparent;
                 }
                 .btnSelected {
-                    color: red;
-                    background-color: green;
+                    color: black;
+                    background-color: lightblue;
                 }
                 .btnUnselected {
                     color: black;
-                    background-color: gray;
+                    background-color: #ffffff;
                 }
             }
             .list-ios>.item-block:first-child {
@@ -83,4 +83,39 @@ page-space-package-list {
             width: 100%;
         }
     }
+    .middleText{
+        height: 30px;
+    }
+    /**
+    *文字两边横线start
+    */
+    .login_content {
+        position: absolute;
+        text-align: center;
+        min-width: 450px;
+    }
+    .login_content div {
+        // font: 400 20px Helvetica, Arial, sans-serif;
+        line-height: 20px;
+    }
+    /*CSS伪类用法*/
+    .login_content div:after,
+    .login_content div:before {
+        background: #000000;
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        width: 30%;
+    }
+    /*调整背景横线的左右距离*/
+    .login_content div:before {
+        left: 10px;
+    }
+    .login_content div:after {
+        right: 10px;
+    }
+    /**
+    *文字两边横线end
+    */
 }
