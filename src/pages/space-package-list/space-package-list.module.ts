@@ -8,6 +8,6 @@ import { SpacePackageListPage } from './space-package-list';
   ],
   imports: [
     IonicPageModule.forChild(SpacePackageListPage),
-  ],
+  ]
 })
-export class SpacePackageListPageModule {}
+export class SimilarProductsListPageModule { }

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { PackageServiceProvider } from '../../providers/package-service/package-service';
+
+
+
 /**
  * Generated class for the SimilarProductsListPage page.
  *
@@ -15,11 +19,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SimilarProductsListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  groupProductID: string;
+  groupProducts = [];
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public packageService: PackageServiceProvider) {
+    this.groupProductID = this.navParams.data;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SimilarProductsListPage');
+  ionViewWillEnter() {
+    try {
+      let param = {
+        id : this.groupProductID
+      }
+      this.packageService.getGroupProducts(param).subscribe((res)=>{
+        if(res.er == -1){
+          this.groupProducts = res.items;
+        }
+      })
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
+
+  getProductDetail(idx){
+    let code = this.groupProducts[idx].Code;
+    this.navCtrl.push("ProductDetailPage",code);
   }
 
 }

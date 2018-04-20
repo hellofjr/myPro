@@ -15,8 +15,8 @@
 
 <ion-content padding>
   <ion-row>
-    <ion-col col-6>
-      <ion-card>
+    <ion-col col-6 *ngFor="let item of groupProducts;let idx = index">
+      <ion-card (tap)="getProductDetail(idx)">
         <ion-row>
           <ion-col>
             <img src="assets/imgs/demoCard.jpg" />
@@ -25,10 +25,10 @@
 
         <ion-card-content>
           <ion-card-title text-center>
-            转角沙发GL01
+            {{item.Name}}
           </ion-card-title>
           <ion-row>
-            <ion-col col-3 offset-9>免费替换</ion-col>
+            <ion-col text-end>{{item.Label}}</ion-col>
           </ion-row>
         </ion-card-content>
       </ion-card>

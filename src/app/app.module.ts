@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import {PackageListPage} from '../pages/package-list/package-list'
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -17,12 +17,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ThemeableBrowser } from '@ionic-native/themeable-browser';
 import { ProductServiceProvider } from '../providers/product-service/product-service';
 import { HttpServiceProvider } from '../providers/http-service/http-service';
+import { PackageServiceProvider } from '../providers/package-service/package-service';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    PackageListPage,
     HomePage,
     TabsPage
   ],
@@ -35,7 +36,7 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    PackageListPage,
     HomePage,
     TabsPage
   ],
@@ -45,7 +46,8 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductServiceProvider,
-    HttpServiceProvider
+    HttpServiceProvider,
+    PackageServiceProvider
   ]
 })
 export class AppModule {}

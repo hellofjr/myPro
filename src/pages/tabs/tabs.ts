@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { PackageListPage } from '../package-list/package-list'
 
 
 
@@ -12,17 +12,17 @@ import { ContactPage } from '../contact/contact';
 export class TabsPage {
 
   tabRoots: object[];
-  
+
   constructor() {
     this.tabRoots = [{
       root: HomePage,
       tabTitle: "首页",
       tabIcon: "home"
-    },{
-      root: ContactPage,
-      tabTitle: "分类",
+    }, {
+      root: PackageListPage,
+      tabTitle: "套餐包",
       tabIcon: "home"
-    },{
+    }, {
       root: AboutPage,
       tabTitle: "Home",
       tabIcon: "home"

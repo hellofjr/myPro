@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 
-
 import { ProductServiceProvider } from '../../providers/product-service/product-service';
 
 
@@ -25,9 +24,9 @@ export class HomePage {
   disX: number = 0;
 
   imagesList = [
-    {Url:'//img001.mllres.com/images/small/291/width/280/height/197/mode/1/encrypt/47aba4fc670872578073e99ee72211a2/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHOG9f5ix+9iXluumWB3RzCCBYw5VWmk0xxP1NW3ynkgJQ==.jpg'},
-    {Url:'//img001.mllres.com/images/small/376/width/280/height/197/mode/1/encrypt/d1b278991c4cb0351a0b58d46d580d14/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHP69jhERgJVKKbTDoGj343P9nUb6IIA8cyd2FsLppHTTw==.jpg'},
-    {Url:'//img003.mllres.com/images/small/584/width/565/height/374/mode/1/encrypt/58388ff0b49de9fc30e53ee4cfa72501/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHPI_9xgm7e5+8LGV6twsKEZiPZm53_fcONo0BCiNWYbmZtBkmwqUSNG1pBHQen20GhfYVvcVi8R9yKY4tvLXtZ3C99+GXSxIpLkOxMm06EEvlaU2VAnTacGSyek0GEK_wk=.jpg'}
+    { Url: '//img001.mllres.com/images/small/291/width/280/height/197/mode/1/encrypt/47aba4fc670872578073e99ee72211a2/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHOG9f5ix+9iXluumWB3RzCCBYw5VWmk0xxP1NW3ynkgJQ==.jpg' },
+    { Url: '//img001.mllres.com/images/small/376/width/280/height/197/mode/1/encrypt/d1b278991c4cb0351a0b58d46d580d14/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHP69jhERgJVKKbTDoGj343P9nUb6IIA8cyd2FsLppHTTw==.jpg' },
+    { Url: '//img003.mllres.com/images/small/584/width/565/height/374/mode/1/encrypt/58388ff0b49de9fc30e53ee4cfa72501/path/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHPI_9xgm7e5+8LGV6twsKEZiPZm53_fcONo0BCiNWYbmZtBkmwqUSNG1pBHQen20GhfYVvcVi8R9yKY4tvLXtZ3C99+GXSxIpLkOxMm06EEvlaU2VAnTacGSyek0GEK_wk=.jpg' }
   ]
 
   constructor(public navCtrl: NavController,
@@ -63,7 +62,7 @@ export class HomePage {
     //   cssClass: 'pictureModal'
     // });
     // mymodal.present();
-    
+
   }
 
   /** 
@@ -77,7 +76,7 @@ export class HomePage {
    * 获取指定套餐包
    * @param idx 
    */
-  getPackageDetail(idx){
+  getPackageDetail(idx) {
     this.navCtrl.push("SpacePackageListPage");
   }
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser';
 
-import { ProductServiceProvider } from '../../providers/product-service/product-service';
+import { PackageServiceProvider } from '../../providers/package-service/package-service';
+
 
 
 /**
@@ -20,14 +21,14 @@ import { ProductServiceProvider } from '../../providers/product-service/product-
 export class SpacePackageListPage {
 
   topImg: string;
-  spaceList = [
-    { Name: '客厅', ID: '1', Selected: true },
-    { Name: '餐厅', ID: '2', Selected: false },
-    { Name: '卧室', ID: '3', Selected: false },
-    { Name: '厨房', ID: '4', Selected: false },
-    { Name: '卫生间', ID: '5', Selected: false }
-  ];
+  spaceList = [];
+  spacePackageList = [];
+  packageItems = [];
+  productList = [];
   selectedID: number = 0;
+  spaceName: string;
+  spacePrice: string;
+  customPackageID: string;
   browser: ThemeableBrowserObject;
   options: ThemeableBrowserOptions = {
     statusbar: {
@@ -54,24 +55,49 @@ export class SpacePackageListPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public themeableBrowser: ThemeableBrowser,
-    public productService: ProductServiceProvider) {
+    public packageService: PackageServiceProvider) {
+    this.customPackageID = this.navParams.data;
   }
 
   ionViewWillEnter() {
-    this.topImg = 'assets/imgs/demo.jpg';
+    try {
+      let param = {
+        id: this.customPackageID
+      }
+      this.getSpacePackage(param, 0);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  getSpacePackage(param, idx) {
+    this.packageService.getSpacePackageList(param).subscribe(res => {
+      if (res.er == -1) {
+        if (this.spaceList.length == 0) {
+          res.items.forEach(element => {
+            this.spaceList.push({ Name: element.SpaceName, ID: element.ID, Selected: false });
+          });
+        };
+        this.spacePackageList = res.items;
+        this.setPageContent(0);
+      }
+    })
+  }
+
+  setPageContent(idx) {
+    this.spaceName = this.spacePackageList[idx].SpaceName;
+    this.spacePrice = this.spacePackageList[idx].Price;
+    this.productList = this.spacePackageList[idx].SpacePackageItems;
+    this.topImg = this.spacePackageList[idx].ImgUrl ? this.spacePackageList[idx].ImgUrl : 'assets/imgs/demo.jpg';
+    if (idx != this.selectedID) {
+      this.spaceList[this.selectedID].Selected = false;
+    }
+    this.selectedID = idx;
+    this.spaceList[idx].Selected = true;
   }
 
   selectSpace(idx) {
-    let spaceID = this.spaceList[idx].ID;
-    let param = {
-      id: spaceID
-    };
-    // this.productService.getPackageDetail(param).subscribe(res => {
-    //   console.log(res.items);
-    this.spaceList[this.selectedID].Selected = false;
-    this.selectedID = idx;
-    this.spaceList[idx].Selected = true;
-    // });
+    this.setPageContent(idx);
   }
 
   /**
@@ -81,9 +107,9 @@ export class SpacePackageListPage {
     this.browser = this.themeableBrowser.create('http://img360.fang.com/2017/03/31/gz/720/c6088d66aa7c4481852a2cf8a4f4f75e/index.html?type=hangpai?nc=2811172684', '_blank', this.options);
   }
 
-  goSimilarProductsList() {
-    
-    this.navCtrl.push("SimilarProductsListPage");
+  goSimilarProductsList(idx) {
+    let id = this.productList[idx].GroupID;
+    this.navCtrl.push("SimilarProductsListPage", id);
   }
 
 }

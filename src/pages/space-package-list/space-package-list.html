@@ -21,7 +21,7 @@
       <ion-scroll scrollY="true" class="hasScroll">
         <ion-list class="scollTopPadding">
           <button class="spaceItem" text-center *ngFor="let space of spaceList;let idx = index" [ngClass]="{'btnSelected': space.Selected, 'btnUnselected': !space.Selected}"
-            (click)="selectSpace(idx)">
+            (tap)="selectSpace(idx)">
             {{ space.Name }}
           </button>
         </ion-list>
@@ -36,41 +36,23 @@
         </ion-row>
         <ion-row class="middleText">
           <ion-col class="login_content">
-              <div>客厅标配套餐</div>  
+              <div>{{spaceName}}标配套餐</div>  
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-6>
-            <ion-card (tap)="goSimilarProductsList()">
+          <ion-col col-6 *ngFor="let item of productList;let idx = index">
+            <ion-card (tap)="goSimilarProductsList(idx)">
               <img src="assets/imgs/demoCard.jpg" />
-              <div class="card-title">沙发</div>
-            </ion-card>
-          </ion-col>
-          <ion-col col-6>
-            <ion-card>
-              <img src="assets/imgs/demoCard.jpg" />
-              <div class="card-title">茶几</div>
-            </ion-card>
-          </ion-col>
-          <ion-col col-6>
-            <ion-card>
-              <img src="assets/imgs/demoCard.jpg" />
-              <div class="card-title">凳子</div>
-            </ion-card>
-          </ion-col>
-          <ion-col col-6>
-            <ion-card>
-              <img src="assets/imgs/demoCard.jpg" />
-              <div class="card-title">凳子</div>
+              <div class="card-title">{{item.Name}}</div>
             </ion-card>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-6 offset-2>
-            客厅
+            {{spaceName}}
           </ion-col>
           <ion-col col-4>
-            空间价<b>19800</b>元
+            空间价<b>{{spacePrice}}</b>元
           </ion-col>
         </ion-row>
       </ion-scroll>
